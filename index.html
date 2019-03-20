@@ -52,12 +52,12 @@
 	<label>Imię Pracownika</label>
 	<input type="text" name="name" required>
 	<label>Nazwisko Pracownika</label>
-	<input type="text" name="surname">
-	<label>Imię Klient</label>
-	<input type="text" name="name" required>
+	<input type="text" name="surname" required>
+	<label>Imię Klienta</label>
+	<input type="text" name="clientname" required>
 	<label>Nazwisko Klienta</label>
-	<input type="text" name="surname">
-	<label>Status Zadania</label>
+	<input type="text" name="clientsurname" required>
+	<label>Edycja statusu Zadania</label>
 	<input list="status" name="status">
 		<datalist id="status">
 	    <option value="oczekujące">
@@ -65,6 +65,13 @@
 	    <option value="finalizowanie">
 	    <option value="dostarczone">
 	  	</datalist>
+	<label>
+		<input type="radio" name="setting" value="add"> Dodaj
+	</label>
+	<label>
+	  <input type="radio" name="setting" value="edit"> Edycja
+	</label>
+	<input type="submit">
 </form>
 </body>
 </html>
