@@ -1,7 +1,7 @@
 <?php
 //import and start connection to the database
 require "connect.php";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($_POST['setting']=="add") {
 	//create adding query
@@ -19,5 +19,6 @@ elseif ($_POST['setting']=="view") {
 	echo $result['status'];
 
 }
+echo '<br><a href="index.html">Powrót</a>';
 $conn = null;
 ?>

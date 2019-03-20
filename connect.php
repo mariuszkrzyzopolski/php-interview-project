@@ -5,9 +5,10 @@ $password = "";
 $dbname = "koni";
 
 function runQuery($query,$conn){
-$result=$conn->query($query);
+//$result=$conn->prepare($query);
+$conn->query($query);
 	if($conn){
-    	return $result;
+    	return $conn->query($query);
 	}
 	else{
     	echo $conn;

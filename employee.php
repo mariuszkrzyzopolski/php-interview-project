@@ -1,26 +1,26 @@
 <?php
 //import and start connection to the database
 require "connect.php";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$query="
-	SELECT idemployee
-	FROM employees
-	WHERE name='".$_POST["name"]."' AND surname='".$_POST["surname"]."'";
+$query="
+SELECT id
+FROM employees
+WHERE name='".$_POST["ename"]."' AND surname='".$_POST["esurname"]."'";
+$idemployee = runQuery($query,$conn)->fetch(PDO::FETCH_ASSOC);
 
-	$idemployee = runQuery($query,$conn)->fetch(PDO::FETCH_ASSOC);
+$query="
+SELECT id
+FROM Zadania
+WHERE name='".$_POST["clientname"]."' AND surname='".$_POST["clientsurname"]."'";
 	
-	$query="
-	SELECT id
-	FROM Zadania
-	WHERE name='".$_POST["clientname"]."' AND surname='".$_POST["clientsurname"]."'";
-	
-	$idtask = runQuery($query,$conn)->fetch(PDO::FETCH_ASSOC);
+$idtask = runQuery($query,$conn)->fetch(PDO::FETCH_ASSOC);
+
 if ($_POST['setting']=="add") {
 	$query = "
 	INSERT INTO orders (idzadania,idemployee)
-	VALUES('".$idtask["id"]."','".$idemployee["idemployee"]."')";
+	VALUES('".$idtask["id"]."','".$idemployee["id"]."')";
 	runQuery($query,$conn);
 }
 elseif ($_POST['setting']=="edit") {
@@ -30,5 +30,6 @@ elseif ($_POST['setting']=="edit") {
 	WHERE id = '".$idtask['id']."';";
 	runQuery($query,$conn);
 }
+echo '<br><a href="index.html">Powrót</a>';
 $conn = null;
 ?>
