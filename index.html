@@ -5,28 +5,33 @@
 	<title></title>
 	<style type="text/css">
 	form{
-		width:600px;
+		float: left;
+		width:400px;
 		display: flex;
 		flex-direction: column;
 	}
-	input{
+	input, textarea{
 		width:300px;
+	}
+	input[type="radio"]{
+		width:10px;
 	}
 	</style>
 </head>
 <body>
 <form action="koni.php" method="post">
+	<h1>Client View</h1>
 	<label>Imię</label>
-	<input type="text" name="name">
+	<input type="text" name="name" required>
 	<label>Nazwisko</label>
 	<input type="text" name="surname">
 	<label>Firma</label>
-	<input type="text" name="company">
+	<input type="text" name="company" required>
 	<label>e-mail</label>
-	<input type="email" name="mail">
+	<input type="email" name="mail" required>
 	<label>Opis problemu</label>
-	<textarea rows="4" name="problem"></textarea>
-	<label>Status</label>
+	<textarea rows="4" name="problem" required></textarea>
+	<label>Status Zadania</label>
 	<input list="status" name="status">
   	<datalist id="status">
     <option value="oczekujące">
@@ -34,7 +39,32 @@
     <option value="finalizowanie">
     <option value="dostarczone">
   	</datalist>
+	<label>
+		<input type="radio" name="setting" value="add"> Dodaj
+	</label>
+	<label>
+	  <input type="radio" name="setting" value="view"> Zobacz status realizacji
+	</label>
 	<input type="submit">
+</form>
+<form action="employee.php" method="post">
+	<h1>Admin View</h1>
+	<label>Imię Pracownika</label>
+	<input type="text" name="name" required>
+	<label>Nazwisko Pracownika</label>
+	<input type="text" name="surname">
+	<label>Imię Klient</label>
+	<input type="text" name="name" required>
+	<label>Nazwisko Klienta</label>
+	<input type="text" name="surname">
+	<label>Status Zadania</label>
+	<input list="status" name="status">
+		<datalist id="status">
+	    <option value="oczekujące">
+	    <option value="w trakcie">
+	    <option value="finalizowanie">
+	    <option value="dostarczone">
+	  	</datalist>
 </form>
 </body>
 </html>
