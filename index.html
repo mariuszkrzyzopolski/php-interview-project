@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	form{
+		width:600px;
+		display: flex;
+		flex-direction: column;
+	}
+	input{
+		width:300px;
+	}
+	</style>
+</head>
+<body>
+<form action="koni.php" method="post">
+	<label>Imię</label>
+	<input type="text" name="name">
+	<label>Nazwisko</label>
+	<input type="text" name="surname">
+	<label>Firma</label>
+	<input type="text" name="company">
+	<label>e-mail</label>
+	<input type="email" name="mail">
+	<label>Opis problemu</label>
+	<textarea rows="4" name="problem"></textarea>
+	<label>Status</label>
+	<input list="status" name="status">
+  	<datalist id="status">
+    <option value="oczekujące">
+    <option value="w trakcie">
+    <option value="finalizowanie">
+    <option value="dostarczone">
+  	</datalist>
+	<input type="submit">
+</form>
+</body>
+</html>
