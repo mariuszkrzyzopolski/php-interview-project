@@ -6,7 +6,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($_POST['setting']=="add") {
 	//create adding query
 	$query = "INSERT INTO Zadania (name,surname,company,email,problem,status)
-	VALUES ('".$_POST["name"]."', '".$_POST["surname"]."','".$_POST["company"]."', '".$_POST["mail"]."','".$_POST["problem"]."','".$_POST["status"]."')";
+	VALUES ('".$_POST["name"]."', '".$_POST["surname"]."','".$_POST["company"]."', '".$_POST["mail"]."','".$_POST["problem"]."','oczekujące')";
 	runQuery($query,$conn);
 }
 elseif ($_POST['setting']=="view") {
