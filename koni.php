@@ -19,12 +19,17 @@ if ($_POST['setting']=="add") {
 elseif ($_POST['setting']=="view") {
 	//create query to view a task status, for client
 	$query="
-	SELECT status 
+	SELECT status, email
 	FROM Zadania 
 	WHERE name='".$_POST["name"]."' AND surname='".$_POST["surname"]."' AND company='".$_POST["company"]."' AND email='".$_POST["mail"]."'";
-	$notif = "Status Twojego zadania to: ";
+	$notif = "Wysyłam maila.Status Twojego zadania to: ";
 	$result = runQuery($query,$conn,$notif)->fetch(PDO::FETCH_ASSOC);
+	
 	echo $result['status'];
+	//Mail doesnt work with outside server like home.pl yet
+	//$msg = "Status zleconego przez Państwa zadania to ".$result['status'];
+
+	//mail($result['mail'],"Status Zadadnia",$msg);
 
 }
 echo '<br><a href="index.html">Powrót</a>';
