@@ -4,11 +4,12 @@ $username = "root";
 $password = "";
 $dbname = "koni";
 
-function runQuery($query,$conn){
+function runQuery($query,$conn,$notif=""){
 //$result=$conn->prepare($query);
-$conn->query($query);
+$result = $conn->query($query);
 	if($conn){
-    	return $conn->query($query);
+		echo $notif;
+    	return $result;
 	}
 	else{
     	echo $conn;

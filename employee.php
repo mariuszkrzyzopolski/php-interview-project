@@ -21,14 +21,18 @@ if ($_POST['setting']=="add") {
 	$query = "
 	INSERT INTO orders (idzadania,idemployee)
 	VALUES('".$idtask["id"]."','".$idemployee["id"]."')";
-	runQuery($query,$conn);
+	$notif = "Powiązano";
+	runQuery($query,$conn,$notif);
+	
 }
 elseif ($_POST['setting']=="edit") {
 	$query="
 	UPDATE Zadania
 	SET status = '".$_POST["status"]."'
 	WHERE id = '".$idtask['id']."';";
-	runQuery($query,$conn);
+	$notif = "Edcyja statusu zakończona";
+	runQuery($query,$conn,$notif);
+
 }
 echo '<br><a href="index.html">Powrót</a>';
 $conn = null;
