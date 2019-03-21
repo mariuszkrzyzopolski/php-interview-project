@@ -4,9 +4,14 @@
 	<meta charset="utf-8">
 	<title></title>
 	<style type="text/css">
+	body{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 	form{
-		float: left;
-		width:400px;
+		margin-right: 20px;
 		display: flex;
 		flex-direction: column;
 	}
@@ -15,6 +20,9 @@
 	}
 	input[type="radio"]{
 		width:10px;
+	}
+	#inst{
+		width: 500px;
 	}
 	</style>
 </head>
@@ -65,6 +73,32 @@
 	</label>
 	<input type="submit">
 </form>
-<a href="https://github.com/mariuszkrzyzopolski/php-interview-project">Link do kodu źródłowego</a>
+
+<div id="inst">
+	<a href="https://github.com/mariuszkrzyzopolski/php-interview-project">Link do kodu źródłowego</a>
+<h3>Dodawanie zlecenia</h3>
+Użytkownik musi wypełnić wszystkie pola i zaznaczyć opcję dodaj
+<h3>Sprawdzenie statusu realizacji</h3>
+Użytkownik może sprawdzić status zleconego zadania identyfikując się imieniem, nazwiskiem, firmą i mailem (takie jak przy dodawaniu zlecenia) i opcji Zobacz status realizacji
+<h2>Administracja</h2>
+<h3>Powiązanie zlecenia z pracownikiem</h3>
+Można powiązać zlecenie użytkownika z pracownikiem, za pomocą imion i nazwisk.przykładowi pracownicy z bazy to:
+<ul>
+	<li>Adam Kowalski</li>
+	<li>Małgorzata Wiśniewska</li>
+	<li>Paweł Woźniak</li>
+	<li>Norbert Kozłowski</li>
+</ul>
+Zbierzność nazwisk jest przypadkowa.Status nie musi być wypełniony
+<h3>Zmiana statusu zadania</h3>
+Możliwość edycji statusu za pomocą imion i nazwisk pracownika i klienta. Przykładowe powiązania znajdujące się w bazie:
+<ul>
+	<li>pracownik Adam Kowalski - klient Stefan Nowak</li>
+	<li>pracownica Małgorzata Wiśniewska - klient Paweł Szczygło</li>
+	<li>pracownik Paweł Woźniak - klient Stefan Mleczyk</li>
+	<li>pracownik Norbert Kozłowski - klient Dawid Miotła</li>
+</ul>
+Zbierzność nazwisk jest przypadkowa
+</div>
 </body>
 </html>
