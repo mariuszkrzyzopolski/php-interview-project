@@ -1,7 +1,7 @@
 <?php
 //import and start connection to the database
 require "connect.php";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+$conn = new PDO("dblib:version=8.0;charset=UTF-8;Server=".$servername.";Database=".$dbname, $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 if ($_POST['setting']=="add") {
 
@@ -24,7 +24,7 @@ elseif ($_POST['setting']=="view") {
 	WHERE name='".$_POST["name"]."' AND surname='".$_POST["surname"]."' AND company='".$_POST["company"]."' AND email='".$_POST["mail"]."'";
 	$notif = "Wysyłam maila.Status Twojego zadania to: ";
 	$result = runQuery($query,$conn,$notif)->fetch(PDO::FETCH_ASSOC);
-	
+
 	echo $result['status'];
 	//Mail doesnt work with outside server like home.pl yet
 	//$msg = "Status zleconego przez Państwa zadania to ".$result['status'];

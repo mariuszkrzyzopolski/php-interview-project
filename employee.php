@@ -1,7 +1,8 @@
 <?php
 //import and start connection to the database
 require "connect.php";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+$conn = new PDO("dblib:version=8.0;charset=UTF-8;Server=".$servername.";Database=".$dbname, $username, $password);
+//$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //Select employee with given name and surname
